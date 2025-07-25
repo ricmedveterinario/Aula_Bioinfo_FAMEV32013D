@@ -1,0 +1,40 @@
+#Verificar se ja existe instalado o pacote que gera graficos ggplot2
+library(ggplot2)
+
+#Se sim pular esta etapa
+# Se não: Instalar pacote
+install.packages("ggplot2")
+
+# Tentar Carregar pacote novamente
+library(ggplot2)
+
+# Operações matemáticas simples
+2 + 2
+sqrt(16)
+
+# Criando um vetor
+genes <- c("geneA", "geneB", "geneC")
+
+# Criando um dataframe
+dados <- data.frame(
+  amostra = c("A1", "A2", "A3"),
+  expressao = c(5.2, 4.7, 6.1)
+)
+
+# Média de expressão
+mean(dados$expressao)
+
+minha_paleta <- c("A1" = "skyblue",  # azul
+                  "A2" = "orange",  # laranja
+                  "A3" = "seagreen")  # verde
+
+
+# Gráfico com ggplot2 e paleta aplicada
+g1 <- ggplot(dados, aes(x = amostra, y = expressao, fill = amostra)) +
+  geom_col() +
+  scale_fill_manual(values = minha_paleta) +
+  labs(title = "Expressão por Amostra", x = "Amostra", y = "Expressão") +
+  theme_minimal()
+
+# Exibindo o gráfico
+print(g1)
