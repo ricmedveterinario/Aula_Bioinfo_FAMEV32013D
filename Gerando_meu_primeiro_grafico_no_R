@@ -24,10 +24,10 @@ dados <- data.frame(
 # Média de expressão
 mean(dados$expressao)
 
+#Salvando minha paleta de cores que sera usada no grafico
 minha_paleta <- c("A1" = "skyblue",  # azul
                   "A2" = "orange",  # laranja
                   "A3" = "seagreen")  # verde
-
 
 # Gráfico com ggplot2 e paleta aplicada
 g1 <- ggplot(dados, aes(x = amostra, y = expressao, fill = amostra)) +
